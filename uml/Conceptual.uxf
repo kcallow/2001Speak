@@ -302,7 +302,7 @@ bg=green</panel_attributes>
       <w>150</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>PocketSphinxLibrary</panel_attributes>
+    <panel_attributes>PSphinxDictionary</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
