@@ -1,0 +1,10 @@
+Introduccion:
+Casos de uso:
+	- Diagrama:
+	- Descripcion:
+Diagramas de actividad:
+Modelo conceptual:
+Diagrama de clases:
+Diagrama de secuencia:
+Conclusiones y recomendaciones:
+Referencias:
