@@ -148,7 +148,7 @@ bg=yellow</panel_attributes>
       <x>190</x>
       <y>370</y>
       <w>150</w>
-      <h>140</h>
+      <h>180</h>
     </coordinates>
     <panel_attributes>WindowController</panel_attributes>
     <additional_attributes/>
@@ -448,5 +448,28 @@ bg=yellow</panel_attributes>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>30;300;120;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>200</x>
+      <y>500</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>New window
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>60</x>
+      <y>320</y>
+      <w>160</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>140;190;30;30</additional_attributes>
   </element>
 </diagram>
