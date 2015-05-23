@@ -332,14 +332,14 @@ bg=green</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>140</x>
-      <y>310</y>
-      <w>340</w>
-      <h>270</h>
+      <x>180</x>
+      <y>400</y>
+      <w>186</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-&lt;&lt;readsWritesCommands&gt;&gt;</panel_attributes>
-    <additional_attributes>140;250;140;50;320;50</additional_attributes>
+&lt;&lt;readsWrites&gt;&gt;</panel_attributes>
+    <additional_attributes>100;160;100;50;150;50</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
