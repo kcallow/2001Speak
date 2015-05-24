@@ -39,11 +39,16 @@ fontsize=11
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>500</x>
-      <y>180</y>
+      <y>170</y>
       <w>100</w>
-      <h>30</h>
+      <h>60</h>
     </coordinates>
-    <panel_attributes>2001Shell</panel_attributes>
+    <panel_attributes>2001Shell
+--
+--
++getKey()
++runMacro()
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -52,22 +57,23 @@ fontsize=11
       <x>520</x>
       <y>100</y>
       <w>50</w>
-      <h>100</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m2=1</panel_attributes>
-    <additional_attributes>30;30;30;80</additional_attributes>
+    <additional_attributes>30;30;30;70</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>520</x>
-      <y>180</y>
+      <y>200</y>
       <w>50</w>
-      <h>110</h>
+      <h>90</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>30;30;30;90</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+</panel_attributes>
+    <additional_attributes>30;30;30;70</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
@@ -80,8 +86,8 @@ m2=1</panel_attributes>
     <panel_attributes>VoiceRecognizer
 --
 --
-+start()
-+stop()
++startListening()
++stopListening()
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -91,24 +97,28 @@ m2=1</panel_attributes>
       <x>450</x>
       <y>270</y>
       <w>160</w>
-      <h>30</h>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>CommandProcessor</panel_attributes>
+    <panel_attributes>CommandProcessor
+--
+--
+analyzeCommand()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>700</x>
+      <x>680</x>
       <y>270</y>
-      <w>180</w>
+      <w>200</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>WindowManager
 --
 
 --
-+sendKeyPressToCurrent(key)</panel_attributes>
++executeKeyPress(keySequence)
++writeWord(word)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -192,26 +202,26 @@ m2=1</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>580</x>
+      <x>570</x>
       <y>230</y>
-      <w>140</w>
+      <w>138</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;controls&gt;&gt;</panel_attributes>
-    <additional_attributes>120;50;30;50</additional_attributes>
+    <additional_attributes>110;50;40;50</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>520</x>
-      <y>270</y>
+      <y>280</y>
       <w>50</w>
-      <h>100</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m2=*</panel_attributes>
-    <additional_attributes>30;30;30;80</additional_attributes>
+    <additional_attributes>30;30;30;70</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
@@ -227,15 +237,20 @@ m2=*</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>320</x>
+      <x>300</x>
       <y>560</y>
-      <w>130</w>
-      <h>50</h>
+      <w>150</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>MacroManager
 --
 --
-</panel_attributes>
++getMacro()
++createMacro()
++startRecordingMacro()
++stopRecordingMacro()
++deleteMacro(macro)
++listMacros()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
