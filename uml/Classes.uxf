@@ -124,10 +124,10 @@ analyzeCommand()</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>830</x>
-      <y>180</y>
-      <w>110</w>
-      <h>80</h>
+      <x>800</x>
+      <y>160</y>
+      <w>140</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>/Manager/
 --
@@ -135,7 +135,9 @@ analyzeCommand()</panel_attributes>
 -current
 --
 +new()
-+deleteCurrent()</panel_attributes>
++deleteCurrent()
++listManagedObjects()
++loadFromFile()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -143,12 +145,12 @@ analyzeCommand()</panel_attributes>
     <coordinates>
       <x>600</x>
       <y>230</y>
-      <w>310</w>
-      <h>240</h>
+      <w>320</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 </panel_attributes>
-    <additional_attributes>290;30;290;220;30;220</additional_attributes>
+    <additional_attributes>300;30;300;140;30;140</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
@@ -156,7 +158,7 @@ analyzeCommand()</panel_attributes>
       <x>450</x>
       <y>350</y>
       <w>180</w>
-      <h>140</h>
+      <h>50</h>
     </coordinates>
     <panel_attributes>/CommandManager/
 --
@@ -170,11 +172,11 @@ analyzeCommand()</panel_attributes>
     <coordinates>
       <x>850</x>
       <y>250</y>
-      <w>60</w>
+      <w>70</w>
       <h>50</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>40;30;30;30</additional_attributes>
+    <additional_attributes>50;30;30;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
@@ -227,7 +229,7 @@ m2=*</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>520</x>
-      <y>480</y>
+      <y>370</y>
       <w>50</w>
       <h>100</h>
     </coordinates>
@@ -238,14 +240,14 @@ m2=*</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>300</x>
-      <y>560</y>
+      <y>450</y>
       <w>150</w>
       <h>100</h>
     </coordinates>
     <panel_attributes>MacroManager
 --
 --
-+getMacro()
++getMacro(): Macro
 +createMacro()
 +startRecordingMacro()
 +stopRecordingMacro()
@@ -257,7 +259,7 @@ m2=*</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>480</x>
-      <y>560</y>
+      <y>450</y>
       <w>130</w>
       <h>30</h>
     </coordinates>
@@ -268,7 +270,7 @@ m2=*</panel_attributes>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>640</x>
-      <y>560</y>
+      <y>450</y>
       <w>150</w>
       <h>40</h>
     </coordinates>
@@ -283,7 +285,7 @@ m2=*</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>350</x>
-      <y>500</y>
+      <y>390</y>
       <w>380</w>
       <h>80</h>
     </coordinates>
@@ -293,32 +295,35 @@ m2=*</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>760</x>
-      <y>150</y>
-      <w>70</w>
-      <h>30</h>
+      <x>690</x>
+      <y>120</y>
+      <w>90</w>
+      <h>50</h>
     </coordinates>
-    <panel_attributes>Window</panel_attributes>
+    <panel_attributes>Window
+--
+--
+closeWindow()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>740</x>
-      <y>150</y>
+      <x>690</x>
+      <y>140</y>
       <w>104</w>
-      <h>140</h>
+      <h>150</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 -window
 m2=*</panel_attributes>
-    <additional_attributes>60;120;60;30</additional_attributes>
+    <additional_attributes>60;130;60;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
       <x>960</x>
-      <y>150</y>
+      <y>120</y>
       <w>70</w>
       <h>30</h>
     </coordinates>
@@ -328,14 +333,14 @@ m2=*</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>800</x>
-      <y>110</y>
-      <w>180</w>
+      <x>750</x>
+      <y>80</y>
+      <w>230</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 &lt;&lt;controls&gt;&gt;</panel_attributes>
-    <additional_attributes>160;50;30;50</additional_attributes>
+    <additional_attributes>210;50;30;50</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
@@ -389,7 +394,7 @@ m2=*</panel_attributes>
       <x>180</x>
       <y>70</y>
       <w>770</w>
-      <h>440</h>
+      <h>490</h>
     </coordinates>
     <panel_attributes>2001Speak
 bg=green</panel_attributes>
