@@ -20,6 +20,6 @@ void mouseSpiral(double a, double b) {
 }
 
 int main() {
-	mouseSpiral(1,0.2);
+	XteWrapper::mousermove("24","200");
 	return 0;
 }

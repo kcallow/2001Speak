@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include <pstreams/pstream.h>
 #include <iostream>
 using namespace std;
 
@@ -44,7 +44,9 @@ class XteWrapper {
 	private:
 		static void run(string command, string params) {
 			string exec = "xte '" + command + " " + params + "'";
-			system(exec.c_str());
+			redi::ipstream proc(exec);
+            proc.close();
+
 		}
 
 };

@@ -42,7 +42,7 @@ private:
 	vector<string> lines;
 	string match = "INFO: pocketsphinx.c(1133): ";
 	int matchLen = match.length();
-	string command = "pocketsphinx_continuous -inmic yes -backtrace yes";
+	string command = "pocketsphinx_continuous -inmic yes -backtrace yes -dict *.dic -lm *.lm";
 
 	bool matchingLine(string line)
 	{

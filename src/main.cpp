@@ -1,7 +1,7 @@
-#include "VoiceInHandler.h"
+#include "VoiceRecognizer.h"
 
 int main()
 {
-    VoiceInHandler voiceIn;
+    VoiceRecognizer voiceIn;
     voiceIn.handleVoiceInput();
 }
