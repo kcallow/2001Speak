@@ -31,16 +31,9 @@ public:
 	}
 
 	void processLine(string line) {
-		words.clear();
-		split(line,' ',words);
-		for(auto word : words) {
-			if(isModifierKey(word))
-				XteWrapper::keydown(word);
-			else {
-				XteWrapper::keypress(word);
-				releaseModifierKeys();
-			}
-		}
+		getWords(line);
+		for(auto word : words)
+			handleWord(word);
 	}
 
 	bool isModifierKey(string &word) {
@@ -50,15 +43,29 @@ public:
 		return false;
 	}
 
-	void releaseModifierKeys() {
-		for(auto key : modifierKeys)
-			XteWrapper::keyup(key);
-	}
-	
 private:
 	VoiceRecognizer* parent;
 	vector<string> words;
 	vector<string> modifierKeys {"Control_L", "Alt_L", "Meta_L", "Shift_L", "Super_L"};
+
+	void getWords (string &line) {
+		words.clear();
+		split(line,' ',words);
+	}
+
+	void handleWord(string &word) {
+		if(isModifierKey(word))
+			XteWrapper::keydown(word);
+		else {
+			XteWrapper::keypress(word);
+			releaseModifierKeys();
+		}
+	}
+
+	void releaseModifierKeys() {
+		for(auto key : modifierKeys)
+			XteWrapper::keyup(key);
+	}
 };
 
 class VoiceRecognizer {
