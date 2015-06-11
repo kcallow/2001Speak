@@ -24,36 +24,9 @@ enum Mode {
 	MODES
 };
 
-class CommandProcessor {
-public: 
-	CommandProcessor(VoiceRecognizer* parent) {
-		this->parent = parent;
-	}
-
-	void processLine(string line) {
-		getWords(line);
-		for(auto word : words)
-			handleWord(word);
-	}
-
-	bool isModifierKey(string &word) {
-		for(auto key : modifierKeys)
-			if(word.compare(key) == 0)
-				return true;
-		return false;
-	}
-
-private:
-	VoiceRecognizer* parent;
-	vector<string> words;
-	vector<string> modifierKeys {"Control_L", "Alt_L", "Meta_L", "Shift_L", "Super_L"};
-
-	void getWords (string &line) {
-		words.clear();
-		split(line,' ',words);
-	}
-
-	void handleWord(string &word) {
+class WordProcessor {
+public:
+	void processWord(string &word) {
 		if(isModifierKey(word))
 			XteWrapper::keydown(word);
 		else {
@@ -62,9 +35,78 @@ private:
 		}
 	}
 
+private:
+	vector<string> modifierKeys {"Control_L", "Alt_L", "Meta_L", "Shift_L", "Super_L"};
+
+	bool isModifierKey(string &word) {
+		for(auto key : modifierKeys)
+			if(word.compare(key) == 0)
+				return true;
+		return false;
+	}
+
 	void releaseModifierKeys() {
 		for(auto key : modifierKeys)
 			XteWrapper::keyup(key);
+	}
+};
+
+class LineProcessor {
+private:
+	int repetitions;
+public:
+	vector<string> words;
+	WordProcessor wordProcessor;
+
+	void processWords() {
+		for(int i = 0; i < repetitions; i++)
+			for(auto word : words)
+				wordProcessor.processWord(word);
+	}
+
+	bool isRepeat() {
+		return words[0].compare("REPEAT") == 0;
+	}
+
+	void clear() {
+		words.clear();
+	}
+
+	void calculateRepetitions() {
+		repetitions = 1;
+		int extracted = sscanf(words[0].c_str(), "%d", &repetitions);
+		if(extracted)
+			words.erase(words.begin()); //Erase first element
+	}
+};
+
+class CommandProcessor {
+public: 
+	CommandProcessor(VoiceRecognizer* parent) {
+		this->parent = parent;
+	}
+
+	void processLine(string &line) {
+		extractWords(line);
+		if(lineProcessor.isRepeat()) {
+			cout << "Repeating...\n";
+			prevLineProcessor.processWords();
+			lineProcessor = prevLineProcessor; //Preserve repeated command
+		}
+		else {
+			lineProcessor.calculateRepetitions();
+			lineProcessor.processWords();
+		}
+	}
+
+private:
+	VoiceRecognizer* parent;
+	LineProcessor lineProcessor, prevLineProcessor;
+
+	void extractWords (string &line) {
+		prevLineProcessor = lineProcessor; //Backup previous line
+		lineProcessor.clear();
+		split(line,' ',lineProcessor.words);
 	}
 };
 
@@ -85,7 +127,7 @@ public:
 		delete processor;
 	}
 
-	void handleVoiceInput() {
+	void processVoiceInput() {
 		redi::ipstream proc(command, redi::pstreams::pstderr);
 		string line;
 		while (getline(proc.out(), line)) 
@@ -93,7 +135,7 @@ public:
 	}
 
 private:
-	void processLine(string line) {
+	void processLine(string &line) {
 		if (isLineMatching(line)) {
 			line = extractCommand(line);
 			processor->processLine(line);
@@ -101,12 +143,12 @@ private:
 		}
 	}
 
-	bool isLineMatching(string line) {
+	bool isLineMatching(string &line) {
 		return line.length() >= matchLen
 			&& line.substr(0,matchLen).compare(match) == 0;
 	}
 
-	string extractCommand(string line) {
+	string extractCommand(string &line) {
 		return line.substr(matchLen, line.find("(", matchLen) - matchLen); 
 	}
 };

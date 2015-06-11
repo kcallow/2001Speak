@@ -3,5 +3,5 @@
 int main()
 {
     VoiceRecognizer voiceIn;
-    voiceIn.handleVoiceInput();
+    voiceIn.processVoiceInput();
 }
