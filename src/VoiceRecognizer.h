@@ -25,7 +25,6 @@ private:
 public:
 	vector<string> words;
 	WordProcessor* wordProcessor;
-	MacroManager macroManager;
 
 	LineProcessor() {
 		wordProcessor = new KeyModeProcessor();
@@ -53,8 +52,6 @@ public:
 	void processWords() {
 		if(isModeChange())
 			changeMode();
-		if(isMacro())
-			macroManager.processWord(words[1]);
 		else for(int i = 0; i < repetitions; i++)
 			for(auto word : words)
 				wordProcessor->processWord(word);
@@ -90,10 +87,12 @@ class CommandProcessor {
 public: 
 	CommandProcessor(VoiceRecognizer* parent) {
 		this->parent = parent;
+		macroManager.setParent(this);
 	}
 
 	void processLine(string &line) {
 		extractWords(line);
+		handleMacros(line);
 		lineProcessor.calculateRepetitions();
 		if(lineProcessor.isRepeat()) {
 			repeatPreviousLine();
@@ -104,9 +103,16 @@ public:
 		}
 	}
 
+	void handleMacros(string &line) {
+		macroManager.processLine(line);
+		if(lineProcessor.isMacro())
+			macroManager.processWord(lineProcessor.words[1]);
+	}
+
 private:
 	VoiceRecognizer* parent;
 	LineProcessor lineProcessor, prevLineProcessor;
+	MacroManager macroManager;
 
 	void extractWords (string &line) {
 		prevLineProcessor = lineProcessor; //Backup current command

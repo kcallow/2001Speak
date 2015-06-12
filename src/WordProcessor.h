@@ -92,25 +92,127 @@ public:
 	void processWord(string &word) {}
 };
 
+class Macro : public vector<string> {
+public:
+	void run() {
+	}
+	void print() {
+		cout << "Macro definition:\n";
+		for(string line : *this) {
+			cout << "\t" + line + "\n";
+		}
+	}
+};
+
+class MacroContainer : public vector<Macro> {
+private:
+	iterator current = begin();
+
+public:
+	Macro getFirst() {
+		return *begin();
+	}
+
+	Macro getLast() {
+		return *end();
+	}
+
+	Macro getCurrent() {
+		return *current;
+	}
+
+	int getCurrentIndex() {
+		return current - begin();
+	}
+
+	void runCurrent() {
+		current->run();
+	}
+
+	void newMacro() {
+		push_back(Macro());
+	}
+
+	void next() {
+		if(current != end())
+			current++;
+	}
+
+	void previous() {
+		if(current != begin())
+			current--;
+	}
+
+	void appendLineToLast(string &line) {
+		begin()->push_back(line);
+	}
+};
+
 class MacroManager : public WordProcessor{
 private:
+	void* parent;
+	MacroContainer macros;
 	map<string, function<void()>> actions;
+	bool recording;
 
 public:
 	MacroManager() {
-		actions["BEGIN"] = []() {};
-		actions["End"] = []() {};
-		actions["LIST"] = []() {};
-		actions["Delete"] = []() {};
-		actions["PLAY"] = []() {};
-		actions["REPLAY"] = []() {};
+		actions["BEGIN"] = [this]() {
+			cout << "Recording to macro #";
+			cout << macros.size();
+			cout << "...\n";
+			macros.newMacro();
+			recording = true;
+		};
+		actions["End"] = [this]() {
+			cout << "Recorded to macro #";
+			cout << macros.size() - 1;
+			cout << ".\n";
+			recording = false;
+		};
+		actions["LIST"] = [this]() {
+			cout << "There are ";
+			cout << macros.size();
+			cout << " macros.\n";
+			cout << "Current macro definition is:\n";
+			macros.getCurrent().print();
+		};
+		actions["Delete"] = [this]() {};
+		actions["PLAY"] = [this]() {
+			cout << "Running macro ";
+			cout << macros.getCurrentIndex();
+			cout << ".\n";
+			macros.runCurrent();
+		};
+		actions["NEXT"] = [this]() {
+			macros.next();
+			cout << "Current macro is: ";
+			cout << macros.getCurrentIndex();
+			cout << ".\n";
+		};
+		actions["PREVIOUS"] = [this]() {
+			macros.previous();
+			cout << "Current macro is: ";
+			cout << macros.getCurrentIndex();
+			cout << ".\n";
+		};
+	}
+
+	void setParent(void* parent) {
+		this->parent = parent;
 	}
 
 	void processWord(string &word) {
-		auto action = controller.actions[word]; 
+		auto action = actions[word]; 
 		if(action) { //If action exists, do it
 			action();
 			cout << "Macro action: " + word + ".\n";
+		}
+	}
+
+	void processLine(string &line) {
+		if(recording) {
+			macros.appendLineToLast(line);
 		}
 	}
 };

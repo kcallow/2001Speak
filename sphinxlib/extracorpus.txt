@@ -5,7 +5,8 @@ macro end
 macro list
 macro delete
 macro play
-macro replay
+macro next
+macro previous
 
 mode key 
 Num_Lock
