@@ -2,7 +2,6 @@
 #include <string>
 #include <functional>
 #include <map>
-#include <utility>
 #include <iostream>
 using namespace std;
 
@@ -60,25 +59,25 @@ public:
 			XteWrapper::mousermove("-40", "0"); };
 		actions["Right"] = []() { 
 			XteWrapper::mousermove("40", "0"); };
-		actions["LEFT_BUTTON"] = [&]() { 
-			XteWrapper::mouseclick(currentButton); };
-		actions["MIDDLE_BUTTON"] = [&]() { 
-			XteWrapper::mousedown(currentButton); };
-		actions["RIGHT_BUTTON"] = [&]() { 
-			XteWrapper::mouseup(currentButton); };
-		actions["CLICK"] = [&]() { 
+		actions["LEFT_BUTTON"] = [this]() { 
 			currentButton = "1"; };
-		actions["HOLD"] = [&]() { 
+		actions["MIDDLE_BUTTON"] = [this]() { 
 			currentButton = "2"; };
-		actions["RELEASE"] = [&]() { 
+		actions["RIGHT_BUTTON"] = [this]() { 
 			currentButton = "3"; };
+		actions["CLICK"] = [this]() { 
+			XteWrapper::mouseclick(currentButton); };
+		actions["HOLD"] = [this]() { 
+			XteWrapper::mousedown(currentButton); };
+		actions["RELEASE"] = [this]() { 
+			XteWrapper::mouseup(currentButton); };
 	}
 };
 
 class MouseModeProcessor : public WordProcessor{
 public:
 	void processWord(string &word) {
-		auto action = controller.actions[word]; //Get action in word
+		auto action = controller.actions[word]; 
 		if(action) { //If action exists, do it
 			action();
 			cout << "Mouse action: " + word + ".\n";
@@ -93,6 +92,29 @@ public:
 	void processWord(string &word) {}
 };
 
+class MacroManager : public WordProcessor{
+private:
+	map<string, function<void()>> actions;
+
+public:
+	MacroManager() {
+		actions["BEGIN"] = []() {};
+		actions["End"] = []() {};
+		actions["LIST"] = []() {};
+		actions["Delete"] = []() {};
+		actions["PLAY"] = []() {};
+		actions["REPLAY"] = []() {};
+	}
+
+	void processWord(string &word) {
+		auto action = controller.actions[word]; 
+		if(action) { //If action exists, do it
+			action();
+			cout << "Macro action: " + word + ".\n";
+		}
+	}
+};
+
 class WordProcessorFactory {
 public:
 	static WordProcessor* makeInstance(Mode mode) {
@@ -103,8 +125,6 @@ public:
 				return new MouseModeProcessor();
 			case INSERT:
 				return new InsertModeProcessor();
-			default: //Default mode is key mode
-				return new KeyModeProcessor();
 		}
 	}
 };

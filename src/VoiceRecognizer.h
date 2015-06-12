@@ -25,6 +25,7 @@ private:
 public:
 	vector<string> words;
 	WordProcessor* wordProcessor;
+	MacroManager macroManager;
 
 	LineProcessor() {
 		wordProcessor = new KeyModeProcessor();
@@ -52,19 +53,32 @@ public:
 	void processWords() {
 		if(isModeChange())
 			changeMode();
+		if(isMacro())
+			macroManager.processWord(words[1]);
 		else for(int i = 0; i < repetitions; i++)
 			for(auto word : words)
 				wordProcessor->processWord(word);
 	}
 
 	bool isModeChange() {
-		return words[0].compare("MODE") == 0;
+		return validateCommand("MODE");
+	}
+
+	bool isMacro() {
+		return validateCommand("MACRO");
+	}
+
+	bool validateCommand(string word) {
+		return words[0].compare(word) == 0 && words.size() > 1;
 	}
 
 	void changeMode() {
-		cout << "Switch to mode: " + words[1] + "...\n";
-		Mode mode = modeMap[words[1]];
-		wordProcessor = WordProcessorFactory::makeInstance(mode);
+		string mode = words[1];
+		cout << "Switch to mode: " + mode + "...\n";
+		if(modeMap.count(mode) == 1) {
+			Mode newMode = modeMap[mode];
+			wordProcessor = WordProcessorFactory::makeInstance(newMode);
+		}
 	}
 
 	bool isRepeat() {
@@ -114,8 +128,6 @@ private:
 	string match = "INFO: pocketsphinx.c(1133): ";
 	int matchLen = match.length();
 public:
-	Mode mode = KEY;
-
 	VoiceRecognizer() {
 		processor = new CommandProcessor(this);
 	}
