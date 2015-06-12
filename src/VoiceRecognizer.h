@@ -22,7 +22,6 @@ private:
 	map<string, Mode> modeMap {{"INSERT", INSERT},
 				   {"KEY", KEY},
 				   {"MOUSE", MOUSE}};
-
 public:
 	vector<string> words;
 	WordProcessor* wordProcessor;
@@ -53,10 +52,9 @@ public:
 	void processWords() {
 		if(isModeChange())
 			changeMode();
-		else
-			for(int i = 0; i < repetitions; i++)
-				for(auto word : words)
-					wordProcessor->processWord(word);
+		else for(int i = 0; i < repetitions; i++)
+			for(auto word : words)
+				wordProcessor->processWord(word);
 	}
 
 	bool isModeChange() {
@@ -64,6 +62,7 @@ public:
 	}
 
 	void changeMode() {
+		cout << "Switch to mode: " + words[1] + "...\n";
 		Mode mode = modeMap[words[1]];
 		wordProcessor = WordProcessorFactory::makeInstance(mode);
 	}
@@ -103,7 +102,6 @@ private:
 
 	void repeatPreviousLine() {
 		int repetitions = lineProcessor.getRepetitions();
-//		cout << "Repeating " + repetitions + "...\n";
 		for(int i = 0; i < repetitions; i++)
 			prevLineProcessor.processWords();
 	}

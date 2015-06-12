@@ -19,9 +19,11 @@ I think this is a non-word: 9
 NINE - Morpheme: NINE 
 A - Main 
 Alt_L - Main 
+APOSTROPHE - Main 
 B - Main 
 backslash - Main 
 BackSpace - Morpheme: back SPACE 
+BEGIN - Main 
 bracketleft - Morpheme: bracket Left 
 bracketright - Morpheme: bracket Right 
 C - Main 
@@ -35,6 +37,7 @@ Delete - Main
 Down - Main 
 E - Main 
 End - Main 
+EQUAL - Main 
 Escape - Main 
 F - Main 
 I think this is a non-word: F1
@@ -79,6 +82,7 @@ NINE - Morpheme: NINE
 G - Main 
 grave - Main 
 H - Main 
+HOLD - Main 
 Home - Main 
 I - Main 
 Insert - Main 
@@ -87,12 +91,18 @@ K - Main
 KEY - Main 
 L - Main 
 Left - Main 
+Left - Main [base] 
+BUTTON - Main [base] 
+LIST - Main 
 M - Main 
+MACRO - Main 
 Menu - Main 
 Meta_L - Main 
+MIDDLE - Main [base] 
+BUTTON - Main [base] 
 minus - Main 
+MODE - Main 
 MOUSE - Main 
-MOVE - Main 
 MULTI - Main [base] 
 KEY - Main [base] 
 N - Main 
@@ -106,13 +116,17 @@ Page - Main [base]
 Up - Main [base] 
 Pause - Main 
 period - Main 
-plus - Main 
+PLAY - Main 
 Print - Main 
 Q - Main 
 R - Main 
-RELATIVE - Main 
+RELEASE - Main 
+REPEAT - Main 
+REPLAY - Main 
 Return - Main 
 Right - Main 
+Right - Main [base] 
+BUTTON - Main [base] 
 S - Main 
 semicolon - Morpheme: SEMI COLON 
 Shift_L - Main 
@@ -124,6 +138,7 @@ U - Main
 Up - Main 
 V - Main 
 W - Main 
+WORD - Main 
 X - Main 
 Y - Main 
 Z - Main 

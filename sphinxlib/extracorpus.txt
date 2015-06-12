@@ -1,3 +1,13 @@
+repeat
+
+macro begin
+macro end
+macro list
+macro delete
+macro play
+macro replay
+
+mode key 
 Num_Lock
 Caps_Lock
 Shift
@@ -6,11 +16,11 @@ Meta
 Alt
 Multi_key
 Super
-Home
 Left
 Up
 Right
 Down
+Home
 Page_Up
 Page_Down
 End
@@ -70,13 +80,24 @@ F9
 F10
 F11
 F12
+grave
+minus
+equal
+bracketleft
+bracketright
 semicolon
+apostrophe
+backslash
 comma
 period
 slash
-minus
-plus
-backslash
-bracketleft
-bracketright
-grave
+
+mode word 
+
+mode mouse
+left_button
+middle_button
+right_button
+click
+hold
+release

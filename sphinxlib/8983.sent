@@ -1,11 +1,11 @@
-<s> MOUSE CLICK </s>
-<s> MOUSE MOVE </s>
-<s> MOUSE MOVE RELATIVE </s>
-<s> MOUSE Down </s>
-<s> MOUSE Up </s>
-<s> KEY </s>
-<s> KEY Down </s>
-<s> KEY Up </s>
+<s> REPEAT </s>
+<s> MACRO BEGIN </s>
+<s> MACRO End </s>
+<s> MACRO LIST </s>
+<s> MACRO Delete </s>
+<s> MACRO PLAY </s>
+<s> MACRO REPLAY </s>
+<s> MODE KEY </s>
 <s> Num_Lock </s>
 <s> Caps_Lock </s>
 <s> Shift_L </s>
@@ -14,11 +14,11 @@
 <s> Alt_L </s>
 <s> Multi_key </s>
 <s> Super_L </s>
-<s> Home </s>
 <s> Left </s>
 <s> Up </s>
 <s> Right </s>
 <s> Down </s>
+<s> Home </s>
 <s> Page_Up </s>
 <s> Page_Down </s>
 <s> End </s>
@@ -78,13 +78,22 @@
 <s> F10 </s>
 <s> F11 </s>
 <s> F12 </s>
+<s> grave </s>
+<s> minus </s>
+<s> EQUAL </s>
+<s> bracketleft </s>
+<s> bracketright </s>
 <s> semicolon </s>
+<s> APOSTROPHE </s>
+<s> backslash </s>
 <s> comma </s>
 <s> period </s>
 <s> slash </s>
-<s> minus </s>
-<s> plus </s>
-<s> backslash </s>
-<s> bracketleft </s>
-<s> bracketright </s>
-<s> grave </s>
+<s> MODE WORD </s>
+<s> MODE MOUSE </s>
+<s> Left_BUTTON </s>
+<s> MIDDLE_BUTTON </s>
+<s> Right_BUTTON </s>
+<s> CLICK </s>
+<s> HOLD </s>
+<s> RELEASE </s>

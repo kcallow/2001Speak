@@ -53,13 +53,13 @@ public:
 
 	MouseController() {
 		actions["Up"] = []() { 
-			XteWrapper::mousermove("0", "-10"); };
+			XteWrapper::mousermove("0", "-40"); };
 		actions["Down"] = []() { 
-			XteWrapper::mousermove("0", "10"); };
+			XteWrapper::mousermove("0", "40"); };
 		actions["Left"] = []() { 
-			XteWrapper::mousermove("-10", "0"); };
+			XteWrapper::mousermove("-40", "0"); };
 		actions["Right"] = []() { 
-			XteWrapper::mousermove("10", "0"); };
+			XteWrapper::mousermove("40", "0"); };
 		actions["LEFT_BUTTON"] = [&]() { 
 			XteWrapper::mouseclick(currentButton); };
 		actions["MIDDLE_BUTTON"] = [&]() { 
@@ -78,7 +78,11 @@ public:
 class MouseModeProcessor : public WordProcessor{
 public:
 	void processWord(string &word) {
-		controller.actions[word];
+		auto action = controller.actions[word]; //Get action in word
+		if(action) { //If action exists, do it
+			action();
+			cout << "Mouse action: " + word + ".\n";
+		}
 	}
 private:
 	MouseController controller;
@@ -99,6 +103,8 @@ public:
 				return new MouseModeProcessor();
 			case INSERT:
 				return new InsertModeProcessor();
+			default: //Default mode is key mode
+				return new KeyModeProcessor();
 		}
 	}
 };
