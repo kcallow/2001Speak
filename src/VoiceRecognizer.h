@@ -1,4 +1,4 @@
-#include "XteWrapper.h"
+#include "WordProcessor.h"
 #include <pstreams/pstream.h>
 #include <string>
 #include <sstream>
@@ -16,56 +16,27 @@ vector<string> split(string &s, char delim, vector<string> &dest) {
 	return dest;
 }
 
-enum Mode {
-	MACRO,
-	WORD,
-	KEY,
-	MOUSE,
-	MODES
-};
-
-class WordProcessor {
-public:
-	void processWord(string &word) {
-		if(isModifierKey(word))
-			XteWrapper::keydown(word);
-		else {
-			XteWrapper::keypress(word);
-			releaseModifierKeys();
-		}
-	}
-
-private:
-	vector<string> modifierKeys {"Control_L", "Alt_L", "Meta_L", "Shift_L", "Super_L"};
-
-	bool isModifierKey(string &word) {
-		for(auto key : modifierKeys)
-			if(word.compare(key) == 0)
-				return true;
-		return false;
-	}
-
-	void releaseModifierKeys() {
-		for(auto key : modifierKeys)
-			XteWrapper::keyup(key);
-	}
-};
-
 class LineProcessor {
 private:
 	int repetitions;
+	map<string, Mode> modeMap {{"INSERT", INSERT},
+				   {"KEY", KEY},
+				   {"MOUSE", MOUSE}};
+
 public:
 	vector<string> words;
-	WordProcessor wordProcessor;
+	WordProcessor* wordProcessor;
 
-	void processWords() {
-		for(int i = 0; i < repetitions; i++)
-			for(auto word : words)
-				wordProcessor.processWord(word);
+	LineProcessor() {
+		wordProcessor = new KeyModeProcessor();
 	}
 
-	bool isRepeat() {
-		return words[0].compare("REPEAT") == 0;
+	~LineProcessor() {
+		delete wordProcessor;
+	}
+
+	int getRepetitions() {
+		return repetitions;
 	}
 
 	void clear() {
@@ -78,6 +49,28 @@ public:
 		if(extracted)
 			words.erase(words.begin()); //Erase first element
 	}
+
+	void processWords() {
+		if(isModeChange())
+			changeMode();
+		else
+			for(int i = 0; i < repetitions; i++)
+				for(auto word : words)
+					wordProcessor->processWord(word);
+	}
+
+	bool isModeChange() {
+		return words[0].compare("MODE") == 0;
+	}
+
+	void changeMode() {
+		Mode mode = modeMap[words[1]];
+		wordProcessor = WordProcessorFactory::makeInstance(mode);
+	}
+
+	bool isRepeat() {
+		return words[0].compare("REPEAT") == 0;
+	}
 };
 
 class CommandProcessor {
@@ -88,13 +81,12 @@ public:
 
 	void processLine(string &line) {
 		extractWords(line);
+		lineProcessor.calculateRepetitions();
 		if(lineProcessor.isRepeat()) {
-			cout << "Repeating...\n";
-			prevLineProcessor.processWords();
+			repeatPreviousLine();
 			lineProcessor = prevLineProcessor; //Preserve repeated command
 		}
 		else {
-			lineProcessor.calculateRepetitions();
 			lineProcessor.processWords();
 		}
 	}
@@ -104,9 +96,16 @@ private:
 	LineProcessor lineProcessor, prevLineProcessor;
 
 	void extractWords (string &line) {
-		prevLineProcessor = lineProcessor; //Backup previous line
+		prevLineProcessor = lineProcessor; //Backup current command
 		lineProcessor.clear();
 		split(line,' ',lineProcessor.words);
+	}
+
+	void repeatPreviousLine() {
+		int repetitions = lineProcessor.getRepetitions();
+//		cout << "Repeating " + repetitions + "...\n";
+		for(int i = 0; i < repetitions; i++)
+			prevLineProcessor.processWords();
 	}
 };
 

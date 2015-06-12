@@ -1,11 +1,3 @@
-mouse click
-mouse move
-mouse move relative
-mouse down
-mouse up
-key
-key down
-key up
 Num_Lock
 Caps_Lock
 Shift
