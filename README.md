@@ -1,26 +1,26 @@
-Instituto Tecnológico de Costa Rica
-Ingeniería en Computación
-Programación Orientada a Objetos
-I Semestre 2015
-Mauricio Avilés
-Proyecto #3
-Estudiantes:
-Kenneth Callow
-Sara Castro Sáenz
+##Instituto Tecnológico de Costa Rica  
+##Ingeniería en Computación  
+##Programación Orientada a Objetos  
+##I Semestre 2015  
+##Mauricio Avilés  
+##Estudiantes:  
+##Kenneth Callow   
+##Sara Castro Sáenz  
+#Proyecto #3 - 2001Speak 
 
-Contenidos
+#Contenidos
 
 	1. Antes de iniciar
 	2. Dependencias
 	3. Iniciar el programa
 	4. Uso del programa
 
-1. Antes de iniciar
+#1. Antes de iniciar
 
 	Es recomendable el uso de un micrófono de buena calidad.
 	La acústica del espacio en el que se encuentre afecta el funcionamiento del programa.
 
-2. Dependencias
+#2. Dependencias
 
 	2001Speak depende de xte para simular las entradas de los dispositivos, y de pocketsphinx (version pre alpha 5) para recibir las entradas del microfono.
 
@@ -81,22 +81,22 @@ Contenidos
 
 	Fuente: http://cmusphinx.sourceforge.net/wiki/tutorialpocketsphinx
 
-3. Iniciar el programa
+#3. Iniciar el programa
 	
 	Para abrir el programa, dirijase a la carpeta bin/ dentro de la carpeta del programa y haga doble-click en el ejecutable 2001SpeakGUI.  Esta es la version con interfaz grafica.  Para correr en modo texto, corra ./2001Console desde una terminal en la carpeta bin/.
 
-4. Uso del programa
+#4. Uso del programa
 
 	El programa funciona por medio de comandos de voz.
 	La sintaxis básica de estos es [number] action1 ... actionN. 
 		number se refiere a la cantidad de veces que desea repetir una acción
 
-	4.1 Modos
+	#4.1 Modos
 		En el programa hay dos modos: mouse y key. El modo mouse consiste en una serie de acciones para controlar el mouse y 
 		el modo key see utiliza para controlar el teclado.
 		Para activar el modo mouse solo diga en voz alta ¨Mode Mouse¨ y para activar el modo key ¨Mode Key¨.
 
-	4.2 Acciones
+	#4.2 Acciones
 
 		Modo Mouse:
 			Botones:
@@ -119,7 +119,7 @@ Contenidos
 			Las teclas modificadoras (Ctrl, Shift, Alt) las debe decir antes de cualquier tecla no modificadora, estas teclas se
 			mantienen accionadas hasta que una no modificadora se mencione.
 
-	4.3 Macro
+	#4.3 Macro
 		 
 		Acciones:
 			Para activar las acciones de macro solo diga ¨Macro¨ + acción
