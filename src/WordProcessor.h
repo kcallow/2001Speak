@@ -60,11 +60,17 @@ public:
 		actions["Right"] = []() { 
 			XteWrapper::mousermove("40", "0"); };
 		actions["LEFT_BUTTON"] = [this]() { 
-			currentButton = "1"; };
+			currentButton = "1"; 
+			cout << "Switched button to " + currentButton;
+		};
 		actions["MIDDLE_BUTTON"] = [this]() { 
-			currentButton = "2"; };
+			currentButton = "2"; 
+			cout << "Switched button to " + currentButton;
+		};
 		actions["RIGHT_BUTTON"] = [this]() { 
-			currentButton = "3"; };
+			currentButton = "3"; 
+			cout << "Switched button to " + currentButton;
+		};
 		actions["CLICK"] = [this]() { 
 			XteWrapper::mouseclick(currentButton); };
 		actions["HOLD"] = [this]() { 

@@ -41,3 +41,7 @@ sed -i 's/tright/tright/g' *
 sed -i 's/Multi_k/Multi_k/g' *
 sed -i 's/apostrophe/apostrophe/g' *
 sed -i 's/equal/equal/g' *
+sed -i 's/LEFT_/LEFT_/g' *
+sed -i 's/MIDDLE_/MIDDLE_/g' *
+sed -i 's/RIGHT_/RIGHT_/g' *
+
