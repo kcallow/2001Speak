@@ -83,7 +83,7 @@ Contenidos
 
 3. Iniciar el programa
 	
-	Para abrir el programa, dirijase a la carpeta bin/ dentro de la carpeta del programa y haga doble-click en el ejecutable
+	Para abrir el programa, dirijase a la carpeta bin/ dentro de la carpeta del programa y haga doble-click en el ejecutable 2001SpeakGUI.  Esta es la version con interfaz grafica.  Para correr en modo texto, corra ./2001Console desde una terminal en la carpeta bin/.
 
 4. Uso del programa
 
@@ -114,7 +114,7 @@ Contenidos
 				-Right - Mueve el cursor a la derecha
 		
 		Modo Key:
-			Las acciones del modo key consisten en todas las teclas disponibles en el teclado, menos la ñ.
+			Las acciones del modo key consisten en todas las teclas disponibles en el teclado en ingles de Estados Unidos (esto excluye la ñ).
 			Para activar estas teclas solo diga en voz alta el nombre de la tecla que desee activar.
 			Las teclas modificadoras (Ctrl, Shift, Alt) las debe decir antes de cualquier tecla no modificadora, estas teclas se
 			mantienen accionadas hasta que una no modificadora se mencione.
@@ -126,7 +126,7 @@ Contenidos
 
 			-Begin - Empieza a grabar el macro
 			-End - Termina de grabar el macro
-			-List - despliega una lista de macros
+			-List - despliega una lista de macros y la los contenidos del macro actual
 			-Next - Selecciona el siguiente macro
 			-Previous - Selecciona el anterior macro
 			-Delete - Elimina el macro
