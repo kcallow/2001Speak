@@ -18,7 +18,6 @@
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenuBar>
 #include <QtGui/QStatusBar>
-#include <QtGui/QTextBrowser>
 #include <QtGui/QToolBar>
 #include <QtGui/QWidget>
 
@@ -29,7 +28,7 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QLabel *label;
-    QTextBrowser *textBrowser;
+    QWidget *terminal;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -38,21 +37,24 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(438, 337);
-        MainWindow->setMaximumSize(QSize(438, 337));
+        MainWindow->resize(800, 500);
+        MainWindow->setMinimumSize(QSize(800, 500));
+        MainWindow->setMaximumSize(QSize(800, 500));
+        MainWindow->setBaseSize(QSize(800, 500));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         label = new QLabel(centralWidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(10, -30, 101, 341));
-        label->setPixmap(QPixmap(QString::fromUtf8("halsml.png")));
-        textBrowser = new QTextBrowser(centralWidget);
-        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
-        textBrowser->setGeometry(QRect(120, 10, 311, 261));
+        label->setGeometry(QRect(10, -30, 481, 581));
+        label->setPixmap(QPixmap(QString::fromUtf8("Hal-9000-Computer.jpg")));
+        label->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        terminal = new QWidget(centralWidget);
+        terminal->setObjectName(QString::fromUtf8("terminal"));
+        terminal->setGeometry(QRect(360, 0, 491, 481));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 438, 24));
+        menuBar->setGeometry(QRect(0, 0, 800, 24));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));

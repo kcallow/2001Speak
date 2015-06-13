@@ -6,14 +6,26 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>438</width>
-    <height>337</height>
+    <width>800</width>
+    <height>500</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>500</height>
+   </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>438</width>
-    <height>337</height>
+    <width>800</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="baseSize">
+   <size>
+    <width>800</width>
+    <height>500</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -25,24 +37,27 @@
      <rect>
       <x>10</x>
       <y>-30</y>
-      <width>101</width>
-      <height>341</height>
+      <width>481</width>
+      <height>581</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>halsml.png</pixmap>
+     <pixmap>Hal-9000-Computer.jpg</pixmap>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QTextBrowser" name="textBrowser">
+   <widget class="QWidget" name="terminal" native="true">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>10</y>
-      <width>311</width>
-      <height>261</height>
+      <x>360</x>
+      <y>0</y>
+      <width>491</width>
+      <height>481</height>
      </rect>
     </property>
    </widget>
@@ -52,7 +67,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>438</width>
+     <width>800</width>
      <height>24</height>
     </rect>
    </property>

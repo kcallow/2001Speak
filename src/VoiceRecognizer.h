@@ -130,7 +130,7 @@ private:
 class VoiceRecognizer {
 private: 
 	CommandProcessor* processor;
-	string command = "pocketsphinx_continuous -inmic yes -backtrace yes -dict *.dic -lm *.lm";
+	string command = "pocketsphinx_continuous -inmic yes -backtrace yes -dict ../sphinx/*.dic -lm ../sphinx/*.lm";
 	string match = "INFO: pocketsphinx.c(1133): ";
 	int matchLen = match.length();
 public:
