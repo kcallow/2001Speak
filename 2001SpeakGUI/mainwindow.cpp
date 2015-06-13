@@ -12,10 +12,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     process = new QProcess(container);
 
-    QString executable("xterm");// ./2001Console");
+    QString executable("xterm");
     QStringList arguments;
     arguments << "-into";
     arguments << QString::number(container->winId());
+    arguments << "./2001Console";
     process->start(executable, arguments);
 }
 
