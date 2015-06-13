@@ -7,7 +7,9 @@ Dependencias:
 		Pocketsphinx depende de sphinxbase.  Para compilar e instalar ambos, se debe primero instalar estas dependencias:
 			$ sudo apt-get install gcc automake autoconf libtool bison swig python-dev libpulse-dev 
 		Proceda a descargar el codigo fuente de sphinxbase y pocketphinx desde:
+		- sphinxbase-5prealpha.tar.gz:
 			http://sourceforge.net/projects/cmusphinx/files/sphinxbase/5prealpha/
+		- pocketsphinx-5prealpha.tar.gz:
 			http://sourceforge.net/projects/cmusphinx/files/pocketsphinx/5prealpha/
 		En la carpeta donde los descargo, puede descomprimirlos mediante:
 			$ tar -xf sphinxbase-5prealpha.tar.gz 

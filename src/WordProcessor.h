@@ -61,22 +61,28 @@ public:
 			XteWrapper::mousermove("40", "0"); };
 		actions["LEFT_BUTTON"] = [this]() { 
 			currentButton = "1"; 
-			cout << "Switched button to " + currentButton;
+			cout << "Switched button to " + currentButton + ".\n";
 		};
 		actions["MIDDLE_BUTTON"] = [this]() { 
 			currentButton = "2"; 
-			cout << "Switched button to " + currentButton;
+			cout << "Switched button to " + currentButton + ".\n";
 		};
 		actions["RIGHT_BUTTON"] = [this]() { 
 			currentButton = "3"; 
-			cout << "Switched button to " + currentButton;
+			cout << "Switched button to " + currentButton + ".\n";
 		};
 		actions["CLICK"] = [this]() { 
-			XteWrapper::mouseclick(currentButton); };
+			XteWrapper::mouseclick(currentButton); 
+			cout << "Clicked button #" + currentButton + ".\n";
+		};
 		actions["HOLD"] = [this]() { 
-			XteWrapper::mousedown(currentButton); };
+			XteWrapper::mousedown(currentButton); 
+			cout << "Holding button #" + currentButton + ".\n";
+		};
 		actions["RELEASE"] = [this]() { 
-			XteWrapper::mouseup(currentButton); };
+			XteWrapper::mouseup(currentButton); 
+			cout << "Released button #" + currentButton + ".\n";
+		};
 	}
 };
 
