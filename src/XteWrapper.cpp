@@ -21,5 +21,6 @@ void mouseSpiral(double a, double b) {
 
 int main() {
 	XteWrapper::mousermove("24","200");
+	XteWrapper::mouseclick("3");
 	return 0;
 }
