@@ -1,0 +1,34 @@
+Dependencias:
+	2001Speak depende de xte para simular las entradas de los dispositivos, y de pocketsphinx (version pre alpha 5) para recibir las entradas del microfono.
+	* xte:
+		En Ubuntu se puede instalar facilmente mediante:
+			$ sudo apt-get install xautomation
+	* pocketsphinx:
+		Pocketsphinx depende de sphinxbase.  Para compilar e instalar ambos, se debe primero instalar estas dependencias:
+			$ sudo apt-get install gcc automake autoconf libtool bison swig python-dev libpulse-dev 
+		Proceda a descargar el codigo fuente de sphinxbase y pocketphinx desde:
+			http://sourceforge.net/projects/cmusphinx/files/sphinxbase/5prealpha/
+			http://sourceforge.net/projects/cmusphinx/files/pocketsphinx/5prealpha/
+		En la carpeta donde los descargo, puede descomprimirlos mediante:
+			$ tar -xf sphinxbase-5prealpha.tar.gz 
+			$ tar -xf pocketsphinx-5prealpha.tar.gz
+		Ahora entre a la carpeta de sphinxbase:
+			$ cd sphinxbase-5prealpha/
+		Configure, compile e instale:
+			$ ./configure 
+			$ make
+			$ sudo make install
+		Para asegurarse que su sistema carga librerias de /usr/local/:
+			$ export LD_LIBRARY_PATH=/usr/local/lib
+			$ export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+		Regresese y vaya a la carpeta de pocketsphinx:
+			$ cd ../pocketsphinx-5prealpha/
+		Configure, compile e instale:
+			$ ./configure 
+			$ make
+			$ sudo make install
+		Pruebe que pocketsphinx sirve para interpretar frases en ingles mediante:
+			$ pocketsphinx_continuous -inmic yes
+
+	Fuente: http://cmusphinx.sourceforge.net/wiki/tutorialpocketsphinx
+
