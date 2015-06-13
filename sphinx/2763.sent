@@ -1,0 +1,100 @@
+<s> REPEAT </s>
+<s> MACRO BEGIN </s>
+<s> MACRO End </s>
+<s> MACRO LIST </s>
+<s> MACRO Delete </s>
+<s> MACRO PLAY </s>
+<s> MACRO NEXT </s>
+<s> MACRO PREVIOUS </s>
+<s> MODE KEY </s>
+<s> Num_Lock </s>
+<s> Caps_Lock </s>
+<s> Shift_L </s>
+<s> Control_L </s>
+<s> Meta_L </s>
+<s> Alt_L </s>
+<s> Multi_key </s>
+<s> Super_L </s>
+<s> Left </s>
+<s> Up </s>
+<s> Right </s>
+<s> Down </s>
+<s> Home </s>
+<s> Page_Up </s>
+<s> Page_Down </s>
+<s> End </s>
+<s> Return </s>
+<s> BackSpace </s>
+<s> Tab </s>
+<s> Escape </s>
+<s> Delete </s>
+<s> Print </s>
+<s> Pause </s>
+<s> Insert </s>
+<s> Menu </s>
+<s> A </s>
+<s> B </s>
+<s> C </s>
+<s> D </s>
+<s> E </s>
+<s> F </s>
+<s> G </s>
+<s> H </s>
+<s> I </s>
+<s> J </s>
+<s> K </s>
+<s> L </s>
+<s> M </s>
+<s> N </s>
+<s> O </s>
+<s> P </s>
+<s> Q </s>
+<s> R </s>
+<s> S </s>
+<s> T </s>
+<s> U </s>
+<s> V </s>
+<s> W </s>
+<s> X </s>
+<s> Y </s>
+<s> Z </s>
+<s> 1 </s>
+<s> 2 </s>
+<s> 3 </s>
+<s> 4 </s>
+<s> 5 </s>
+<s> 6 </s>
+<s> 7 </s>
+<s> 8 </s>
+<s> 9 </s>
+<s> F1 </s>
+<s> F2 </s>
+<s> F3 </s>
+<s> F4 </s>
+<s> F5 </s>
+<s> F6 </s>
+<s> F7 </s>
+<s> F8 </s>
+<s> F9 </s>
+<s> F10 </s>
+<s> F11 </s>
+<s> F12 </s>
+<s> grave </s>
+<s> minus </s>
+<s> equal </s>
+<s> bracketleft </s>
+<s> bracketright </s>
+<s> semicolon </s>
+<s> apostrophe </s>
+<s> backslash </s>
+<s> comma </s>
+<s> period </s>
+<s> slash </s>
+<s> MODE WORD </s>
+<s> MODE MOUSE </s>
+<s> LEFT_BUTTON </s>
+<s> MIDDLE_BUTTON </s>
+<s> RIGHT_BUTTON </s>
+<s> CLICK </s>
+<s> HOLD </s>
+<s> RELEASE </s>
