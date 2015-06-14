@@ -83,11 +83,16 @@ public:
 	}
 };
 
-class CommandProcessor {
+class CommandProcessor : MacroPlayer {
 public: 
 	CommandProcessor(VoiceRecognizer* parent) {
 		this->parent = parent;
 		macroManager.setParent(this);
+	}
+
+	void playMacro(Macro macro) {
+		for(string line : macro.lines)
+			processLine(line);
 	}
 
 	void processLine(string &line) {

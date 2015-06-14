@@ -5,9 +5,7 @@ using namespace std;
 
 class Macro {
 public:
-	void run() {
-	}
-
+	vector<string> lines;
 	void print() {
 		cout << "Macro contains ";
 		cout << lines.size();
@@ -19,15 +17,15 @@ public:
 	}
 
 	void push_back(string line) {
-		cout << "Appending line '" + line + "'...\n";
+		lines.push_back(line);
 		cout << lines.size();
-		cout << " lines appended.\n";
-		lines.emplace_back();
-		lines[lines.size() - 1] = line;
-//		lines.push_back(newLine);
+		cout << ": ";
 	}
-private:
-	vector<string> lines;
+};
+
+class MacroPlayer {
+public:
+	virtual void playMacro(Macro macro) {}
 };
 
 class MacroContainer : public vector<Macro> {
@@ -47,6 +45,10 @@ public:
 		return *current;
 	}
 
+	void deleteCurrent() {
+		current = erase(current);
+	}
+
 	int getCurrentIndex() {
 		return current - begin();
 	}
@@ -57,13 +59,6 @@ public:
 
 	void goToLast() {
 		current = end() - 1;
-	}
-
-	void runCurrent() {
-		cout << "Playing macro ";
-		cout << getCurrentIndex();
-		cout << ".\n";
-		current->run();
 	}
 
 	void newMacro() {
@@ -89,9 +84,10 @@ public:
 	}
 
 	void appendLineToLast(string line) {
-		getLast().push_back(line);
+		goToLast();
+		current->push_back(line);
 		cout << "Appended '" + line + "' to macro #";
-		cout << size() - 1;
+		cout << getCurrentIndex();
 		cout << ".\n";
 	}
 };

@@ -108,7 +108,7 @@ public:
 
 class MacroManager : public WordProcessor{
 private:
-	void* parent;
+	MacroPlayer* parent;
 	MacroContainer macros;
 	map<string, function<void()>> actions;
 	bool recording;
@@ -135,9 +135,14 @@ public:
 			cout << " macros.\n";
 			macros.printCurrent();
 		};
-		actions["Delete"] = [this]() {};
+		actions["Delete"] = [this]() {
+			macros.deleteCurrent();
+		};
 		actions["PLAY"] = [this]() {
-			macros.runCurrent();
+			cout << "Playing macro ";
+			cout << macros.getCurrentIndex();
+			cout << ".\n";
+			parent->playMacro(macros.getCurrent());
 		};
 		actions["NEXT"] = [this]() {
 			macros.next();
@@ -149,7 +154,7 @@ public:
 		};
 	}
 
-	void setParent(void* parent) {
+	void setParent(MacroPlayer* parent) {
 		this->parent = parent;
 	}
 
