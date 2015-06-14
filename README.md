@@ -1,11 +1,11 @@
-###Instituto Tecnológico de Costa Rica  
-###Ingeniería en Computación  
-###Programación Orientada a Objetos  
-###I Semestre 2015  
-###Mauricio Avilés  
-###Estudiantes:  
-###Kenneth Callow   
-###Sara Castro Sáenz  
+Instituto Tecnológico de Costa Rica  
+Ingeniería en Computación  
+Programación Orientada a Objetos  
+I Semestre 2015  
+Mauricio Avilés  
+Estudiantes:  
+Kenneth Callow   
+Sara Castro Sáenz  
 #Proyecto #3 - 2001Speak 
 
 #Contenidos
@@ -87,9 +87,9 @@ Para abrir el programa, dirijase a la carpeta bin/ dentro de la carpeta del prog
 
 ##4. Uso del programa
 
-El programa funciona por medio de comandos de voz.
-La sintaxis básica de estos es 
-		[number] action1 ... actionN. 
+El programa funciona por medio de comandos de voz.         
+La sintaxis básica de estos es  
+		[number] action1 ... actionN.   
 Donde number se refiere a la cantidad de veces que desea repetir una acción
 
 ##4.1 Modos
