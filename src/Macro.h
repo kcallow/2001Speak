@@ -90,5 +90,10 @@ public:
 		cout << getCurrentIndex();
 		cout << ".\n";
 	}
+
+	void removeLineFromLast() {
+		goToLast();
+		current->lines.pop_back();
+	}
 };
 

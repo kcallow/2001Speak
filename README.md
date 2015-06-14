@@ -83,7 +83,7 @@ Fuente: http://cmusphinx.sourceforge.net/wiki/tutorialpocketsphinx
 
 ##3. Iniciar el programa
 
-Para abrir el programa, dirijase a la carpeta bin/ dentro de la carpeta del programa y haga doble-click en el ejecutable 2001SpeakGUI.  Esta es la version con interfaz grafica.  Para correr en modo texto, corra ./2001Console desde una terminal en la carpeta bin/.
+Para abrir el programa, dirijase a la carpeta bin/ dentro de la carpeta del programa y haga doble-click en el ejecutable 2001SpeakGUI.  Esta es la version con interfaz grafica.  Para correr en modo texto, corra ./2001Console desde una terminal en la carpeta bin/.  El modo de debugging sirve para teclear los comandos en lugar de hablarlos.  Para entrar en el, escriba cualquier argumento a ./2001Console. Ej: '$ ./2001Console foo'.
 
 ##4. Uso del programa
 
