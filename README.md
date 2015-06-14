@@ -93,7 +93,7 @@ La sintaxis básica de estos es:
 Donde number se refiere a la cantidad de veces que desea repetir una acción
 
 ##4.1 Modos
-En el programa hay dos modos: mouse y key. El modo mouse consiste en una serie de acciones para controlar el mouse y el modo key see utiliza para controlar el teclado.
+En el programa hay dos modos: mouse y key. El modo mouse consiste en una serie de acciones para controlar el mouse y el modo key se utiliza para controlar el teclado.
 Para activar el modo mouse solo diga en voz alta ¨Mode Mouse¨ y para activar el modo key ¨Mode Key¨.
 
 ##4.2 Acciones
