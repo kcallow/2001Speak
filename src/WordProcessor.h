@@ -1,3 +1,4 @@
+#include "Macro.h"
 #include "XteWrapper.h"
 #include <string>
 #include <functional>
@@ -26,6 +27,7 @@ public:
 			XteWrapper::keypress(word);
 			releaseModifierKeyModes();
 		}
+		cout << "Key action: " + word + ".\n";
 	}
 
 private:
@@ -104,62 +106,6 @@ public:
 	void processWord(string &word) {}
 };
 
-class Macro : public vector<string> {
-public:
-	void run() {
-	}
-	void print() {
-		cout << "Macro definition:\n";
-		for(string line : *this) {
-			cout << "\t" + line + "\n";
-		}
-	}
-};
-
-class MacroContainer : public vector<Macro> {
-private:
-	iterator current = begin();
-
-public:
-	Macro getFirst() {
-		return *begin();
-	}
-
-	Macro getLast() {
-		return *end();
-	}
-
-	Macro getCurrent() {
-		return *current;
-	}
-
-	int getCurrentIndex() {
-		return current - begin();
-	}
-
-	void runCurrent() {
-		current->run();
-	}
-
-	void newMacro() {
-		push_back(Macro());
-	}
-
-	void next() {
-		if(current != end())
-			current++;
-	}
-
-	void previous() {
-		if(current != begin())
-			current--;
-	}
-
-	void appendLineToLast(string &line) {
-		begin()->push_back(line);
-	}
-};
-
 class MacroManager : public WordProcessor{
 private:
 	void* parent;
@@ -181,32 +127,25 @@ public:
 			cout << macros.size() - 1;
 			cout << ".\n";
 			recording = false;
+			macros.goToLast();
 		};
 		actions["LIST"] = [this]() {
 			cout << "There are ";
 			cout << macros.size();
 			cout << " macros.\n";
-			cout << "Current macro definition is:\n";
-			macros.getCurrent().print();
+			macros.printCurrent();
 		};
 		actions["Delete"] = [this]() {};
 		actions["PLAY"] = [this]() {
-			cout << "Running macro ";
-			cout << macros.getCurrentIndex();
-			cout << ".\n";
 			macros.runCurrent();
 		};
 		actions["NEXT"] = [this]() {
 			macros.next();
-			cout << "Current macro is: ";
-			cout << macros.getCurrentIndex();
-			cout << ".\n";
+			macros.printCurrent();
 		};
 		actions["PREVIOUS"] = [this]() {
 			macros.previous();
-			cout << "Current macro is: ";
-			cout << macros.getCurrentIndex();
-			cout << ".\n";
+			macros.printCurrent();
 		};
 	}
 

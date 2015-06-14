@@ -92,7 +92,8 @@ public:
 
 	void processLine(string &line) {
 		extractWords(line);
-		handleMacros(line);
+		if(handleMacros(line))
+			return;
 		lineProcessor.calculateRepetitions();
 		if(lineProcessor.isRepeat()) {
 			repeatPreviousLine();
@@ -103,10 +104,13 @@ public:
 		}
 	}
 
-	void handleMacros(string &line) {
+	bool handleMacros(string &line) {
 		macroManager.processLine(line);
-		if(lineProcessor.isMacro())
+		if(lineProcessor.isMacro()) {
 			macroManager.processWord(lineProcessor.words[1]);
+			return true;
+		}
+		return false;
 	}
 
 private:
@@ -147,6 +151,14 @@ public:
 		string line;
 		while (getline(proc.out(), line)) 
 			processLine(line);
+	}
+
+	void processTextInput() {
+		string line;
+		while (true) {
+			getline(cin, line);
+			processor->processLine(line);
+		}
 	}
 
 private:
