@@ -127,7 +127,7 @@ public:
 			cout << macros.size() - 1;
 			cout << ".\n";
 			recording = false;
-			macros.removeLineFromLast();
+//			macros.removeLineFromLast();
 		};
 		actions["LIST"] = [this]() {
 			cout << "There are ";
