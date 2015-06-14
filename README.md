@@ -88,8 +88,8 @@ Para abrir el programa, dirijase a la carpeta bin/ dentro de la carpeta del prog
 ##4. Uso del programa
 
 El programa funciona por medio de comandos de voz.         
-La sintaxis básica de estos es  
-		[number] action1 ... actionN.   
+La sintaxis básica de estos es:  
+				[number] action1 ... actionN.   
 Donde number se refiere a la cantidad de veces que desea repetir una acción
 
 ##4.1 Modos
