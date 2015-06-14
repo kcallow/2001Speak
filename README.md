@@ -125,7 +125,7 @@ Para activar el modo mouse solo diga en voz alta ¨Mode Mouse¨ y para activar e
 
 	- Begin - Empieza a grabar el macro
 	- End - Termina de grabar el macro
-	- List - despliega una lista de macros y la los contenidos del macro actual
+	- List - despliega una lista de macros y los contenidos del macro actual
 	- Next - Selecciona el siguiente macro
 	- Previous - Selecciona el anterior macro
 	- Delete - Elimina el macro
